@@ -42,6 +42,7 @@ public class MainWindow extends JFrame
 	JLabel popLbl;
 	JLabel currentToolLbl;
 	JLabel currentToolCostLbl;
+	JLabel robby;
 	Map<MicropolisTool,JToggleButton> toolBtns;
 	EnumMap<MapState,JMenuItem> mapStateMenuItems = new EnumMap<MapState,JMenuItem>(MapState.class);
 	MicropolisTool currentTool;
@@ -380,6 +381,7 @@ public class MainWindow extends JFrame
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c0 = new GridBagConstraints();
 		GridBagConstraints c1 = new GridBagConstraints();
+		GridBagConstraints c2 = new GridBagConstraints();
 
 		c0.gridx = 0;
 		c1.gridx = 1;
@@ -388,6 +390,13 @@ public class MainWindow extends JFrame
 		c0.weighty = c1.weighty = 1.0;
 		c0.anchor = GridBagConstraints.WEST;
 		c1.anchor = GridBagConstraints.EAST;
+		
+		c2.gridx = 0;
+		c2.gridy = 5;
+		c2.anchor = GridBagConstraints.WEST;
+		c2.weightx = 1.0;
+		c2.weighty = 1.0;
+		
 
 		pane.add(new JLabel(strings.getString("main.date_label")), c0);
 		dateLbl = new JLabel();
@@ -404,6 +413,10 @@ public class MainWindow extends JFrame
 		pane.add(new JLabel(strings.getString("main.population_label")), c0);
 		popLbl = new JLabel();
 		pane.add(popLbl, c1);
+		
+		pane.add(new JLabel("Weather: Sunny" ), c2);
+		robby = new JLabel();
+		pane.add(robby, c2);
 
 		return pane;
 	}

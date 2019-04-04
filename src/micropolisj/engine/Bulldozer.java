@@ -72,7 +72,7 @@ class Bulldozer extends ToolStroke
 		else {
 			eff.makeSound(0, 0, Sound.EXPLOSION_BOTH);
 		}
-
+		
 		putRubble(new TranslatedToolEffect(eff, -1, -1), dim.width, dim.height);
 		return;
 	}
@@ -94,6 +94,7 @@ class Bulldozer extends ToolStroke
 
 		fixZone(eff);
 		eff.spend(1);
+		city.sendMessageAt(MicropolisMessage.RUBBLED, 1, 1);
 		return;
 	}
 
@@ -113,5 +114,6 @@ class Bulldozer extends ToolStroke
 			}
 		}
 		fixBorder(eff, w, h);
+		city.pollutionAdd = 250;
 	}
 }

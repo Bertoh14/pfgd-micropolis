@@ -154,6 +154,7 @@ public class Micropolis
 	int pollutionAverage;
 	int landValueAverage;
 	int trafficAverage;
+	int pollutionAdd;
 
 	int resValve;   // ranges between -2000 and 2000, updated by setValves
 	int comValve;   // ranges between -1500 and 1500
@@ -1241,7 +1242,7 @@ public class Micropolis
 			}
 		}
 
-		pollutionAverage = pcount != 0 ? (ptotal / pcount) : 0;
+		pollutionAverage = pcount != 0 ? (ptotal / pcount) + pollutionAdd : 0;
 
 		terrainMem = smoothTerrain(qtem);
 
@@ -2581,7 +2582,7 @@ public class Micropolis
 			}
 			break;
 		case 35:
-			if (pollutionAverage > 60) { // FIXME, consider changing threshold to 80
+			if (pollutionAverage >= 60) { // FIXME, consider changing threshold to 80
 				sendMessage(MicropolisMessage.HIGH_POLLUTION);
 			}
 			break;
