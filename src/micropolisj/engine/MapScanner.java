@@ -216,7 +216,6 @@ class MapScanner extends TileBehavior
 		boolean powerOn = checkZonePower();
 		if ((city.cityTime % 8) == 0) {
 			repairZone(NEW_BUILDING, 3);
-			city.sendMessageAt(MicropolisMessage.TREE, 1, 1);
 		}
 	}
 

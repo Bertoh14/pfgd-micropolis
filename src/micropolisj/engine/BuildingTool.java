@@ -53,6 +53,13 @@ class BuildingTool extends ToolStroke
 			return applyZone(eff, AIRPORT);
 			
 		case NEW_BUILDING:
+			if (city.cityTime % 48 < 24) {
+				city.pollutionAdd -= 2;
+			}
+			else {
+				city.pollutionAdd -= 1;
+			}
+			city.sendMessage(MicropolisMessage.TREE);
 			return applyZone(eff, NEW_BUILDING); //If the tile we're applying is the NEW_BUILDING, use applyZone to place a NEW_BUILDING tile
 
 		default:
